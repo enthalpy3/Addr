@@ -1,6 +1,7 @@
 from django.shortcuts import render
-
-# Create your views here.
+from django.utils import timezone
+from .models import Addr
 
 def name_list(request):
-    return render(request, 'addr/name_list.html', {})
+    names = Addr.objects.all().order_by('name')
+    return render(request, "addr/name_list.html", {'names': names})
