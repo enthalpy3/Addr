@@ -4,7 +4,9 @@
 {% for name in names %}
     <div class="post">
         <h1><a href="{% url 'addr:name_detail' pk=name.pk %}">{{ name.name }}</a></h1>
-        <p1>{{ name.phone1 }}</p1>
+        <!--<p1>{{ name.phone1 }}</p1>-->
+        <!--<p1>{{ name.phone2 }}</p1>-->
+        <!--<p1>{{ name.email }}</p1>-->
     </div>
 {% endfor %}
 {% endblock %}

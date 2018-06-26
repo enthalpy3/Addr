@@ -2,11 +2,19 @@
 
 {% block content %}
     <div class="post">
-         {% if post.published_date %}
+         {% if name.created_date %}
             <div class="date">
-                {{ post.published_date }}
+                {{ name.created_date }}
             </div>
         {% endif %}
-        <p1>{{ name.phone1 }}</p1>
+        <a class="btn btn-default" href="{% url 'addr:name_edit' pk=name.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+
+        <h1>{{ name.name }}</h1>
+
+        <p1>전화1:{{ name.phone1  }}</p1>
+        <br>
+        <p1>전화2:{{ name.phone2 }}</p1>
+        <br>
+        <p1>@:{{ name.email }}</p1>
     </div>
 {% endblock %}
