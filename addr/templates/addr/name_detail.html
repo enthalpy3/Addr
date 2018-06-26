@@ -6,7 +6,9 @@
             <div class="date">
                 {{ name.created_date }}
             </div>
+        <!--<a class="btn btn-default" href="{% url 'addr:name_publish' pk=name.pk %}">Publish</a>-->
         {% endif %}
+        <a class="btn btn-default" href="{% url 'addr:name_remove' pk=name.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
         <a class="btn btn-default" href="{% url 'addr:name_edit' pk=name.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
 
         <h1>{{ name.name }}</h1>

@@ -38,3 +38,17 @@ def name_edit(request, pk):
     else:
         form = AddrForm(instance=name)
     return render(request, 'addr/name_edit.html', {'form': form})
+
+def name_draft_list(request):
+    names = Addr.objects.all().order_by('name')
+    return render(request, 'addr/name_draft_list.html', {'names': names})
+
+def name_publish(request, pk):
+    name = get_object_or_404(Addr, pk=pk)
+    name.publish()
+    return redirect('addr:name_detail', pk=pk)
+
+def name_remove(request, pk):
+    name = get_object_or_404(Addr, pk=pk)
+    name.delete()
+    return redirect('addr:name_list')

@@ -1,0 +1,11 @@
+{% extends 'addr/base.html' %}
+
+{% block content %}
+    {% for name in names %}
+        <div class="post">
+            <p class="date">created: {{ name.created_date|date:'d-m-Y' }}</p>
+            <h1><a href="{% url 'addr:name_detail' pk=name.pk %}">{{ name.name }}</a></h1>
+            <p>{{ name.phone1|truncatechars:200 }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
