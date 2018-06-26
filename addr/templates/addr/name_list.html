@@ -3,8 +3,8 @@
 {% block content %}
 {% for name in names.all %}
     <div class="post">
-    {% if user.is_authenticated or name.approved_addr %}
-            {% if not name.approve_addr %}
+    {% if user.is_authenticated or name.published_date %}
+            {% if not name.published_date %}
             {% endif %}
         <h1><a href="{% url 'addr:name_detail' pk=name.pk %}">{{ name.name }}</a></h1>
         <p1>전화1:{{ name.phone1 }}</p1>
