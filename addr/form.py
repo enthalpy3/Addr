@@ -6,4 +6,4 @@ class AddrForm(forms.ModelForm):
 
     class Meta:
         model = Addr
-        fields = ('author', 'name', 'phone1', 'phone2', 'email', 'approved',)
+        fields = ('author', 'name', 'phone1', 'phone2', 'email',)
