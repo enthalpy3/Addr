@@ -15,9 +15,9 @@ class Addr(models.Model):
     # text = models.TextField()
     # on_off = models.NullBooleanField(default=True)
 
-    def publish(self):
-        self.created_date = timezone.now()
-        self.save()
+    # def publish(self):
+    #     self.created_date = timezone.now()
+    #     self.save()
 
     def approve(self):
         self.approved = True
