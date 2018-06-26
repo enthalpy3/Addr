@@ -9,7 +9,7 @@ class Addr(models.Model):
     email = models.EmailField(max_length=70, blank=True)
     created_date = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
-    approved = models.NullBooleanField(default=True)
+    approved = models.NullBooleanField(default=False)
     # published_date = models.DateTimeField(blank=True, null=True)
     # title = models.CharField(max_length=200)
     # text = models.TextField()
