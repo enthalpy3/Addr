@@ -20,7 +20,7 @@ class Addr(models.Model):
     #     self.save()
 
     def approve(self):
-        self.approved_addr = True
+        # self.approved_addr = True
         self.save()
 
     def __str__(self):
