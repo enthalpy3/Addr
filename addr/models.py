@@ -3,10 +3,10 @@ from django.utils import timezone
 
 
 class Addr(models.Model):
-    name = models.CharField(max_length=30, blank=True)
+    name = models.CharField(max_length=30, null=True, blank=True)
     phone1 = models.CharField(max_length=15)
-    phone2 = models.CharField(max_length=15, blank=True)
-    email = models.EmailField(max_length=70, blank=True)
+    phone2 = models.CharField(max_length=15, null=True, blank=True)
+    email = models.EmailField(max_length=70, null=True, blank=True)
     created_date = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     # published_date = models.DateTimeField(blank=True, null=True)

@@ -1,19 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<div>
-    <h1><a href="/">주소록</a></h1>
-</div>
+{% extends 'addr/base.html' %}
 
+{% block content %}
 {% for name in names %}
-    <div>
-        <h1><a href="">{{ name.name }}</a></h1>
+    <div class="post">
+        <h1><a href="{% url 'addr:name_detail' pk=name.pk %}">{{ name.name }}</a></h1>
         <p1>{{ name.phone1 }}</p1>
     </div>
 {% endfor %}
-</body>
-</html>
+{% endblock %}
