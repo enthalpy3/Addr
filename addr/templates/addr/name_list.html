@@ -1,12 +1,22 @@
 {% extends 'addr/base.html' %}
 
 {% block content %}
-{% for name in names %}
+{% for name in names.all %}
     <div class="post">
+    {% if user.is_authenticated or name.approved %}
+            {% if not name.approved %}
+        <a class="btn btn-default" href="{% url 'addr:name_approve' pk=name.pk %}"><span class="glyphicon glyphicon-ok"></span></a>
+                <a class="btn btn-default" href="{% url 'addr:name_remove' pk=name.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+            {% endif %}
         <h1><a href="{% url 'addr:name_detail' pk=name.pk %}">{{ name.name }}</a></h1>
-        <!--<p1>{{ name.phone1 }}</p1>-->
-        <!--<p1>{{ name.phone2 }}</p1>-->
-        <!--<p1>{{ name.email }}</p1>-->
+        <p1>전화1:{{ name.phone1 }}</p1>
+        <br>
+        <p1>전화2:{{ name.phone2 }}</p1>
+        <br>
+        <p1>@메일:{{ name.email }}</p1>
     </div>
+{% endif %}
+{% empty %}
 {% endfor %}
-{% endblock %}
+
+{% endblock content %}
